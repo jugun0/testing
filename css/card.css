@@ -1,0 +1,70 @@
+/* ── 발췌 카드 공통 (기준 너비 1080px, 미리보기에선 축소해서 보여줌) ── */
+.card {
+  position: relative;
+  width: 1080px;
+  flex: none;
+  overflow: hidden;
+  background-color: var(--bg-color, #fff);
+  color: var(--body-color);
+  font-family: "Pretendard Variable", Pretendard, -apple-system, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  box-sizing: border-box;
+}
+.card *, .card *::before, .card *::after { box-sizing: border-box; }
+.card-bg {
+  position: absolute; inset: 0;
+  background-image: var(--bg-image, none);
+  background-size: var(--bg-fit, cover);
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.card-ov { position: absolute; inset: 0; background: var(--bg-ov, transparent); }
+.card-inner {
+  position: relative;
+  height: 100%;
+  padding: var(--pad-out);
+  display: flex;
+  flex-direction: column;
+}
+.card[data-ratio="auto"] .card-inner { height: auto; }
+
+/* 본문 */
+.x-body {
+  font-family: var(--body-font);
+  font-weight: var(--body-weight);
+  color: var(--body-color);
+  font-size: var(--body-size);
+  letter-spacing: var(--body-ls);
+  line-height: var(--body-lh);
+  text-align: var(--body-align);
+  word-break: keep-all;
+  overflow-wrap: break-word;
+  white-space: pre-wrap;
+}
+.x-body b, .x-body strong { font-weight: bolder; }
+.x-body div, .x-body p { margin: 0; min-height: 1em; }
+
+/* 출처: 작품명 / 작가명 */
+.x-credit {
+  text-align: var(--title-align);
+  line-height: var(--title-lh);
+  word-break: keep-all;
+}
+.x-title, .x-author, .x-sep, .x-pre { white-space: pre-wrap; }
+.x-title {
+  font-family: var(--title-font); font-weight: var(--title-weight); color: var(--title-color);
+  font-size: var(--title-size); letter-spacing: var(--title-ls);
+}
+.x-author {
+  font-family: var(--author-font); font-weight: var(--author-weight); color: var(--author-color);
+  font-size: var(--author-size); letter-spacing: var(--author-ls);
+}
+.x-sep, .x-pre {
+  font-family: var(--author-font); color: var(--author-color); font-size: var(--author-size);
+  opacity: .55; margin: 0 .5em;
+}
+.x-pre { margin-left: 0; }
+.x-credit.stacked .x-title, .x-credit.stacked .x-author { display: block; }
+.x-credit.stacked .x-title { text-align: var(--title-align); line-height: var(--title-lh); }
+.x-credit.stacked .x-author { text-align: var(--author-align); line-height: var(--author-lh); margin-top: .35em; }
+.x-credit.stacked .x-pre { display: none; }
